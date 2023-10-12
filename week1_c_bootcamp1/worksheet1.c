@@ -101,8 +101,44 @@ int f_to_d(){
     return 0;
 }
 
+int fac(int num,int sum){
+    if (num == 1){
+        return sum;
+    } else{
+        sum = sum * num;
+        return fac(num -1, sum );
+    }
+    
+}
+
+int factorial(){
+    int num = 0;
+    int total;
+    printf("What number do you want the factorial of?: ");
+    scanf("%d", &num);
+    total = fac(num, 1);
+    printf("The factorial is %d",total);
+    return 0;
+
+
+}
+
+int light_distance(int days) {
+    int sol = 299792458;
+    int seconds = days * 24 * 60 * 60;
+    int metres = sol * seconds;
+    int kilometers = metres / 1000;
+    printf("Light travels %d km in %d days\n",kilometers,days);
+}
+
+int compound_interest(int start_money,double interest_rate,double time){
+    double multiplier = pow(double interest_rate,double time);
+    float total = start_money * multiplier;
+    printf("%f",total);
+}
+
 int main(){
-    f_to_d();
+    compound_interest(1000,1.08,15);
     return 0;
 }
 
