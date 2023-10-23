@@ -17,56 +17,30 @@ int string_length(char *my_string){
     return length;
 }
 
-char concat_string(char *str1,char *str2){
+char *concat_string(char str1[], char str2[], char result[]){
     int str1_len = string_length(str1);
     int str2_len = string_length(str2);
-
-    char str3[str1_len + str2_len + 1];
+    
 
     for (int i = 0; i < str1_len; i++){
-        str3[i] = str1[i];
+        result[i] = str1[i];
     }
-
     for (int i = 0; i < str2_len; i++){
-        str3[i + str1_len] = str2[i];
+        result[i + str1_len] = str2[i];
     }
 
-    str3[str1_len + str2_len] = '\0';
 
-    return str3;
+
+
+    return result;
 
 }
 
-
-
-
-
-
-/*int main(){
-    char str1[] = "Noah";
-    char str2[] = " Davis";
-    int str1_len = string_length(str1);
-    int str2_len = string_length(str2);
-
-    char str3[str1_len + str2_len + 1];
-
-    for (int i = 0; i < str1_len; i++){
-        str3[i] = str1[i];
-    }
-
-    for (int i = 0; i < str2_len; i++){
-        str3[i + str1_len] = str2[i];
-    }
-
-    str3[str1_len + str2_len] = '\0';
-
-    printf("%s\n",str3);
-
-    return 0;
-}*/
 
 int main(){
-    char *str3 = concat_string("Noah", " Davis");
-    printf("%s\n",str3);
+    char result[100];
+    concat_string("Noah", " Davis",result);
+    printf("%s\n",result);
     return 0;
 }
+
